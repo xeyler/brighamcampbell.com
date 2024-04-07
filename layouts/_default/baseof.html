@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="{{ .Lang }}">
+    <head>
+        <meta charset="utf-8">
+        <title>{{ .Title }}</title>
+        {{ $stylesheet := resources.Get "main.scss" | resources.ToCSS | resources.Minify | resources.Fingerprint }}
+        <link rel="stylesheet" href="{{ $stylesheet.RelPermalink }}">
+    </head>
+    <body>
+        {{ block "body" . }}
+        <h1>{{ .Title }}</h1>
+        {{ block "main" . }}
+            <main>
+                {{ .Content }}
+            </main>
+        {{ end }}
+        {{ partial "footer.html" . }}
+        {{ end }}
+    </body>
+</html>

@@ -1,0 +1,7 @@
+{{ define "body" }}
+<h1>{{ .Title }}<small class="titleDate">{{ .Date | time.Format ":date_medium" }}</small></h1>
+
+{{ block "main" . }}{{ end }}
+
+{{ partial "footer.html" . }}
+{{ end }}
