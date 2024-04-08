@@ -6,7 +6,7 @@
     {{- $image_resource := or (.Page.Resources.Get $u.Path) (resources.Get $u.Path) }}
     {{- $webp_image := $image_resource.Resize (printf "%dx%d webp q%d" $image_resource.Width $image_resource.Height $image_quality) }}
     {{- $src = $webp_image.RelPermalink }}
-    {{- $attributes = merge $attributes (dict "width" "700")}}
+    {{- $attributes = merge $attributes (dict "width" (string $webp_image.Width))}}
     {{- $attributes = merge $attributes (dict "height" (string $webp_image.Height))}}
     {{- if isset site.Params "responsiveimagewidths" }}
         {{- $srcset := ""}}
