@@ -7,16 +7,45 @@ body {
     max-width: 700px;
     margin: 0 auto;
     padding: 16px;
+
+    img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+        margin: 0 auto;
+    }
+}
+
+pre {
+    padding: 10px;
+}
+
+.title {
+    margin-top: 10px;
+    margin-bottom: 25px;
+
+    h1 {
+        margin: 0;
+    }
+
+    .subheader {
+        display: block;
+        font-size: medium;
+        font-weight: normal;
+        color: #555555;
+    }
+}
+
+.footnotes {
+    font-size: 0.85rem;
+}
+
+.rfc {
+    text-align: center;
+    margin: 25px;
 }
 
 footer {
     text-align: center;
     margin-top: 25px;
-}
-
-.titleDate {
-    display: block;
-    font-size: medium;
-    font-weight: normal;
-    color: #555555;
 }
