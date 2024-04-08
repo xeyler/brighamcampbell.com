@@ -1,9 +1,8 @@
 {{ define "main" }}
-    <ul>
-        {{ range where .Site.RegularPages "Type" "notes" }}
-            <li>
-                <a href="{{ .RelPermalink }}">{{ .Date.Format "2006-01-02" }}</a>
-            </li>
-        {{ end }}
-    </ul>
+    {{ range where .Site.RegularPages "Type" "notes" }}
+        <div>
+            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+            <small>{{ .Date | time.Format ":date_long" }}</small>
+        </div>
+    {{ end }}
 {{ end }}

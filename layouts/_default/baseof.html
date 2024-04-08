@@ -2,19 +2,22 @@
 <html lang="{{ .Lang }}">
     <head>
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
         <title>{{ .Title }}</title>
         {{ $stylesheet := resources.Get "main.scss" | resources.ToCSS | resources.Minify | resources.Fingerprint }}
         <link rel="stylesheet" href="{{ $stylesheet.RelPermalink }}">
     </head>
     <body>
         {{ block "body" . }}
-        <h1>{{ .Title }}</h1>
+        <div class="title">
+            <h1>{{ .Title }}</h1>
+        </div>
         {{ block "main" . }}
             <main>
                 {{ .Content }}
             </main>
         {{ end }}
-        {{ partial "footer.html" . }}
+        {{ partialCached "footer.html" . }}
         {{ end }}
     </body>
 </html>

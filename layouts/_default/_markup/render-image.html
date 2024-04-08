@@ -1,0 +1,34 @@
+{{- $u := urls.Parse .Destination }}
+{{- $src := $u.String }}
+{{- $attributes := dict "alt" .Text "title" .Title -}}
+{{- if not $u.IsAbs }}
+    {{- $image_quality := or (site.Params.imageQuality) (75)}}
+    {{- $image_resource := or (.Page.Resources.Get $u.Path) (resources.Get $u.Path) }}
+    {{- $webp_image := $image_resource.Resize (printf "%dx%d webp q%d" $image_resource.Width $image_resource.Height $image_quality) }}
+    {{- $src = $webp_image.RelPermalink }}
+    {{- $attributes = merge $attributes (dict "width" "700")}}
+    {{- $attributes = merge $attributes (dict "height" (string $webp_image.Height))}}
+    {{- if isset site.Params "responsiveimagewidths" }}
+        {{- $srcset := ""}}
+        {{- range site.Params.responsiveImageWidths }}
+            {{- if lt . $image_resource.Width }}
+                {{- with $image_resource.Resize (printf "%dx webp q%d" . $image_quality) }}
+                    {{- $srcset = printf "%s%s %dw, " $srcset .Permalink .Width }}
+                {{- end }}
+            {{- end }}
+        {{- end }}
+        {{- if not (eq "" $srcset) }}
+            {{- $srcset = printf "%s%s %dw" $srcset $webp_image.Permalink $webp_image.Width }}
+            {{- $attributes = merge $attributes (dict "srcset" $srcset) }}
+            {{- $sizes := site.Params.responsiveImageSizes }}
+            {{- $attributes = merge $attributes (dict "sizes" $sizes) }}
+        {{- end }}
+    {{- end }}
+{{- end }}
+{{- $attributes = merge $attributes (dict "src" $src)}}
+<img
+{{- range $k, $v := $attributes -}}
+    {{- if $v -}}
+        {{- printf " %s=%q" $k $v | safeHTMLAttr -}}
+    {{- end -}}
+{{- end -}}>
