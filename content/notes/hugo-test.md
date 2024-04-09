@@ -1,7 +1,7 @@
 +++
-title = "Building the Corne (Helidox) Keyboard"
-
+title = "This is a document for testing Hugo"
 date = "2024-04-07"
+draft = true
 +++
 
 ```c
@@ -49,6 +49,10 @@ This is a first-class image:
 ![blah](/img/rock-climbing.jpg)
 
 ![small rock climbing](/img/rock-climbing-small.jpg)
+
+This is a vector graphic:
+
+![vector graphic](/img/mn_sky.svg)
 
 [^1]: This is the footnote.
 [^2]: This is the second footnote!

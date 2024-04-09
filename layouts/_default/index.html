@@ -1,8 +1,8 @@
-{{ define "main" }}
-    {{ range where .Site.RegularPages "Type" "notes" }}
-        <div>
-            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-            <small>{{ .Date | time.Format ":date_long" }}</small>
+{{- define "main" }}
+    {{- range where site.RegularPages "Type" "notes" }}
+        <div class="title">
+            <p class="subheader">{{ .Date | time.Format ":date_long" }}</p>
+            <a href="{{ .RelPermalink }}">{{ .Title | title }}</a>
         </div>
-    {{ end }}
-{{ end }}
+    {{- end }}
+{{- end }}

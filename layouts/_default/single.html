@@ -1,19 +1,19 @@
-{{ define "body" }}
+{{- define "body" }}
 <div class="title">
-    <h1>{{ .Title }}</h1>
-    <small class="subheader">{{ .Date | time.Format ":date_long" }} from <a href="/">{{ site.Title }}</a></small>
+    <h1>{{ .Title | title}}</h1>
+    <p class="subheader">{{ .Date | time.Format ":date_long" }} from <a href="/">{{ site.Title }}</a></p>
 </div>
 
-{{ block "main" . }}
+{{- block "main" . }}
 <main>
     <article>
         {{ .Content }}
     </article>
 </main>
-{{ end }}
+{{- end }}
 
 {{- if isset site.Params "email" }}
 <div class="rfc">Questions or comments? <a href="mailto:{{ site.Params.email }}?subject={{ urlquery (printf "Re: %s" .Title) }}">Send me an email</a>.</div>
 {{- end }}
-{{ partial "footer.html" . }}
-{{ end }}
+{{- partial "footer.html" . }}
+{{- end }}

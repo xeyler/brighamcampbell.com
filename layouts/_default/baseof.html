@@ -3,21 +3,23 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width">
-        <title>{{ .Title }}</title>
-        {{ $stylesheet := resources.Get "main.scss" | resources.ToCSS | resources.Minify | resources.Fingerprint }}
-        <link rel="stylesheet" href="{{ $stylesheet.RelPermalink }}">
+        <title>{{ .Title | title }}</title>
+        {{- $stylesheet := resources.Get "main.scss" | resources.ToCSS | resources.Minify }}
+        <style>
+            {{ $stylesheet.Content | safeCSS }}
+        </style>
     </head>
     <body>
-        {{ block "body" . }}
+        {{- block "body" . }}
         <div class="title">
-            <h1>{{ .Title }}</h1>
+            <h1>{{ .Title | title }}</h1>
         </div>
-        {{ block "main" . }}
+        {{- block "main" . }}
             <main>
                 {{ .Content }}
             </main>
-        {{ end }}
-        {{ partialCached "footer.html" . }}
-        {{ end }}
+        {{- end }}
+        {{- partialCached "footer.html" . }}
+        {{- end }}
     </body>
 </html>
