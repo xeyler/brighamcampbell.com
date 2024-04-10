@@ -17,9 +17,13 @@ body {
 }
 
 blockquote {
+    border-left: 5px solid #888;
     background: #eee;
+    margin-left: 0;
+    margin-right: 0;
     > * {
-        padding: 10px;
+        padding: 5px;
+        padding-left: 15px;
     }
 }
 
