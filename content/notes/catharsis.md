@@ -32,7 +32,7 @@ kind of respectfully--but mostly just hopelessly--found ways to tip-toe around
 telling you that you're wrong, but you really are. You're just wrong.
 
 > "I tell you, hopeless Grief is passionless..."
-> : Elizabeth Barret Browning
+> : -- Elizabeth Barret Browning
 
 Wise words, thank you Liz. Kind of dramatic though, let's be honest. Who writes
 poems about Grief? She must have been a brave poet, experiencing Grief without
