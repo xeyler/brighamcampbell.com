@@ -54,5 +54,7 @@ This is a vector graphic:
 
 ![vector graphic](/img/mn_sky.svg)
 
+![i dont exist](/img/doesntexist.png)
+
 [^1]: This is the footnote.
 [^2]: This is the second footnote!

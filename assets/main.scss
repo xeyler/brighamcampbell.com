@@ -16,6 +16,13 @@ body {
     }
 }
 
+blockquote {
+    background: #eee;
+    > * {
+        padding: 10px;
+    }
+}
+
 pre {
     padding: 10px;
 }

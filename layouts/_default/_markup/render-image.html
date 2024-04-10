@@ -2,32 +2,38 @@
 {{- $src := $u.String }}
 {{- $attributes := dict "alt" .Text "title" .Title -}}
 {{- if not $u.IsAbs }}
-    {{- $image_resource := or (.Page.Resources.Get $u.Path) (resources.Get $u.Path) | fingerprint }}
-    {{- if eq $image_resource.MediaType.SubType "svg" }}
-        {{- $src = $image_resource.RelPermalink }}
-    {{- else }}
-        {{- $attributes = merge $attributes (dict "width" (string $image_resource.Width))}}
-        {{- $attributes = merge $attributes (dict "height" (string $image_resource.Height))}}
-        {{- $image_quality := or (site.Params.imageQuality) (75)}}
-        {{- $webp_image := $image_resource.Resize (printf "%dx%d webp q%d" $image_resource.Width $image_resource.Height $image_quality) }}
-        {{- $src = $webp_image.RelPermalink }}
-        {{- if isset site.Params "responsiveimagewidths" }}
-            {{- $srcset := ""}}
-            {{- range site.Params.responsiveImageWidths }}
-                {{- if lt . $image_resource.Width }}
-                    {{- with $image_resource.Resize (printf "%dx webp q%d" . $image_quality) }}
-                        {{- $srcset = printf "%s%s %dw, " $srcset .RelPermalink .Width }}
+    {{- with or (.Page.Resources.Get $u.Path) (resources.Get $u.Path) }}
+        {{- with . | fingerprint }}
+            {{- if eq .MediaType.SubType "svg" }}
+                {{- $src = .RelPermalink }}
+            {{- else }}
+                {{- $attributes = merge $attributes (dict "width" (string .Width)) }}
+                {{- $attributes = merge $attributes (dict "height" (string .Height)) }}
+                {{- $image_quality := or (site.Params.imageQuality) (75)}}
+                {{- $webp_image := .Resize (printf "%dx%d webp q%d" .Width .Height $image_quality) }}
+                {{- $src = $webp_image.RelPermalink }}
+                {{- if isset site.Params "responsiveimagewidths" }}
+                    {{- $srcset := "" }}
+                    {{- $image_resource := . }}
+                    {{- range site.Params.responsiveImageWidths }}
+                        {{- if lt . $image_resource.Width }}
+                            {{- with $image_resource.Resize (printf "%dx webp q%d" . $image_quality) }}
+                                {{- $srcset = printf "%s%s %dw, " $srcset .RelPermalink .Width }}
+                            {{- end }}
+                        {{- end }}
+                    {{- end }}
+                    {{- if not (eq "" $srcset) }}
+                        {{- $srcset = printf "%s%s %dw" $srcset $webp_image.RelPermalink $webp_image.Width }}
+                        {{- $attributes = merge $attributes (dict "srcset" $srcset) }}
+                        {{- $sizes := site.Params.responsiveImageSizes }}
+                        {{- $attributes = merge $attributes (dict "sizes" $sizes) }}
                     {{- end }}
                 {{- end }}
             {{- end }}
-            {{- if not (eq "" $srcset) }}
-                {{- $srcset = printf "%s%s %dw" $srcset $webp_image.RelPermalink $webp_image.Width }}
-                {{- $attributes = merge $attributes (dict "srcset" $srcset) }}
-                {{- $sizes := site.Params.responsiveImageSizes }}
-                {{- $attributes = merge $attributes (dict "sizes" $sizes) }}
-            {{- end }}
         {{- end }}
-    {{- end}}
+    {{- else }}
+        {{- warnidf "missing-images" (printf "Couldn't find image as a global or page resource: %s" $u.Path) }}
+    {{- end }}
 {{- end }}
 {{- $attributes = merge $attributes (dict "src" $src)}}
 <img
