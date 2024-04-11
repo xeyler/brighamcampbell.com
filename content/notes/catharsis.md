@@ -9,7 +9,7 @@ until I put the proverbial pen to paper. I'm one to keep my feelings close.
 Especially Grief, for some reason. I treat it like a child: I shelter it, keep
 it close. I feed it. Tuck it in and sing it lullabies as it goes to sleep.
 
-As much as I hate it, expressing grief is one of the best ways I've found to let
+As much as I hate it, expressing Grief is one of the best ways I've found to let
 it spread its wings and fly the coop. My inner critic does not want to explore
 personal pain publicly. It's a bizarre, attention-seeking thing to do. That's
 what I tell myself, anyways. I have such a profound, unexplainable need to
@@ -26,22 +26,95 @@ after we loved each other for five years and before she left me.
 before she left will never return.
 
 See, that last one is especially important, Grief. I want you to write that
-down. Don't roll your eyes either. I know that you don't really believe it
-could be a lie. I've entertained your passion and tenacity about the issue and
-kind of respectfully--but mostly just hopelessly--found ways to tip-toe around
-telling you that you're wrong, but you really are. You're just wrong.
+down. Don't roll your eyes either. I know how badly you want it to be true. How
+fun and destructive that would be, wouldn't it? I've entertained your passion
+and tenacity about the issue and kind of respectfully--but mostly just
+hopelessly--found ways to tip-toe around telling you that you're wrong, but you
+really are. You're just wrong.
 
 > "I tell you, hopeless Grief is passionless..."
 > : -- Elizabeth Barret Browning
 
 Wise words, thank you Liz. Kind of dramatic though, let's be honest. Who writes
 poems about Grief? She must have been a brave poet, experiencing Grief without
-ever feeling hopeless. Or maybe she was just a liar poet... Who knows? Life has a
-way of making us eat our own words now and then and sooner or later. I hope she
-never did. It's more romantic that way.
+ever feeling hopeless. Or maybe she spoke from experience... Who knows? I hope
+she never did. It's more romantic that way.
+
+I'm not much of a marble statue, anyways. More of a wet noodle. One with weird,
+funny emotions and mannerisms. Passionless one day and passionate the next!
 
 ## Hopeless (passionless, or so I'm told) Grief
 
+There's this video online, you can Google it if you want. It's a homeless man
+dancing under a bridge while someone records him, shouting at him, "More
+passion! More energy!" Only the most observant of viewer will deduce that the
+man recording this poor homeless guy paid him to dance. Not that there's
+anything wrong with that, but sometimes Grief and I are alright. Sometimes our
+relationship is firey, dangerous, and exciting. And sometimes it makes me dance
+for a dollar.
+
+:star: MORE PASSION! :star: MORE ENERGY! :star:
+
+And sure, that kind of Grief lacks energy, but is it really because it's
+passionless? And as long as we're not willing to face the cold, hard facts, does
+that really give Grief the room to do what it needs to do? I do believe Grief
+has things to do, by the way. All relationships leave their marks.
+
+Speaking of facing the cold, hard facts, I got this note on my door. It said,
+"Happy Birthday, Dude". Strange. Most people probably would have just told me in
+person or texted. Ah yes, I see. The girl who said that she wanted, no, needed
+to be friends. We need to stay friends. I can't lose you. I might have laughed
+if I had realized that she meant that she wanted to leave anonymous notes and
+pretend that we don't know each other when we're with other people. You know,
+the passionless stuff.
+
+Not that I'm one to speak! I'm not even going to leave a note on her door! Too
+bad... Her birthday is soon. Couldn't forget even (especially?) if I wanted to.
+I guess I should just count myself lucky that she didn't cut the letters out of
+magazines and demand a gazillion dollars as ransom for my love back while she
+was at it...
+
+To the passionlessness!
+
+I stay up late. I respond to texts late. I submit assignments late. Shoot, I
+write notes about Grief late. Way too late. I wake up late. Have you ever
+wondered if you could course-correct your circadian rhythm so severely that you
+keep going to sleep later and later until, eventually, you've started going to
+sleep early?
+
+No? Me either, really. Until I wrote that just now, I guess. I wouldn't
+seriously consider it, of course. I'm a fickle thing that writes about ideas
+that he would never seriously consider. At least I wrote about it, I guess?
+Passionless participation trophy, anyone? Please?
+
+Sometimes, I turn the words, "I love you" over in my mind and on my lips. Is it
+to make sure that I still know how to say them? Did I get all the consonants and
+vowels right that time? Or maybe I just miss saying them? Or maybe--now this is
+a truly dark thought, but follow me here--they're true? "I love you. I love you.
+I love you." Who are you talking to, schizo?
+
+After all this, Grief, how could I possibly tell you that you're wrong? What
+color has a late life? Long, lame, languishing. Hate, strife. Fate-rife, late,
+life.
+
+Hopelessness isn't passionless. Lying is.
+
 ## Hopeful (and therefore passionate!) Grief
 
-Darling, I wish you well. Even though you're awkward, just like the rest of us.
+Maybe I don't seem it, but right now, I'm actually very hopeful. Not always the
+case, but maybe I woke up on the right side of the bed. Maybe I found it funny
+when that other girl wanted to cheat on some poor boy with me because it was a
+strange interaction and for some reason--probably a petty one--it gives me hope
+to know that there are plenty of weirder fish in the sea than just me. Maybe
+not. Maybe I should feel bad for saying that... Maybe I shouldn't...
+
+Hehe. See, you don't understand why, but that's funny. Sorry, it's an inside
+joke. Unless that doll finally found someone to cheat with, I guess. It almost
+makes me want to cheer that girl on, you know?
+
+Grief, I expect that this may come as a surprise to you, but I'm going now. We
+will meet again. It will be as old friends do: Smiling knowingly. Maybe with a
+joke and a hug if I'm feeling peppy. I know you don't like hugs because she said
+that they're awkward. You'll get over it.
+
+I love you, I love you, I love you.
