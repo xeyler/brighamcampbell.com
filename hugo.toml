@@ -7,7 +7,7 @@ enableEmoji = true
 [params]
     email = "me@brighamcampbell.com"
     imageQuality = 75
-    responsiveImageWidths = [160, 320, 480, 700, 980]
+    responsiveImageWidths = [360, 420, 560, 700]
     responsiveImageSizes = "(max-width: 700px) 100vw, 700px"
 
 [minify]
