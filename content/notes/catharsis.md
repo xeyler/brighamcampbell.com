@@ -47,7 +47,7 @@ funny emotions and mannerisms. Passionless one day and passionate the next!
 
 There's this video online, you can Google it if you want. It's a homeless man
 dancing under a bridge while someone records him, shouting at him, "More
-passion! More energy!" Only the most observant of viewer will deduce that the
+passion! More energy!" Only the most observant of viewers will deduce that the
 man recording this poor homeless guy paid him to dance. Not that there's
 anything wrong with that, but sometimes Grief and I are alright. Sometimes our
 relationship is firey, dangerous, and exciting. And sometimes it makes me dance
@@ -103,18 +103,45 @@ Hopelessness isn't passionless. Lying is.
 
 Maybe I don't seem it, but right now, I'm actually very hopeful. Not always the
 case, but maybe I woke up on the right side of the bed. Maybe I found it funny
-when that other girl wanted to cheat on some poor boy with me because it was a
-strange interaction and for some reason--probably a petty one--it gives me hope
-to know that there are plenty of weirder fish in the sea than just me. Maybe
-not. Maybe I should feel bad for saying that... Maybe I shouldn't...
+when that one girl wasn't sure whether or not she was already dating someone
+else when I asked her on a date because it was a strange interaction and for
+some reason--probably a petty one--it gives me hope to know that there are
+plenty of weirder fish in the sea than just me. Maybe not. Maybe I should feel
+bad for saying that...
 
-Hehe. See, you don't understand why, but that's funny. Sorry, it's an inside
-joke. Unless that doll finally found someone to cheat with, I guess. It almost
-makes me want to cheer that girl on, you know?
+Or maybe it was some horrible mistake. One big misunderstanding. Let's be
+honest, that's more likely. And you know what, if that's the case, then that's
+okay! After all, misunderstandings are a fact of life, not a fact of awkward.
+It's okay to be misunderstood. It's okay to misunderstand. It's why we
+communicate hopefully.
+
+I hope that love finds me again. I'm sure it will. With time, I know. As I say
+it, though, I'd rather not that love finds me for love's sake. Nobody loves for
+love. Nobody loves for themselves. If they did, it wouldn't be love. I know
+that.
+
+Can hope be scared too? Wow, I hope that nobody reads this. Would anybody even
+read this much? Certainly not on any weekday. There's comfort in knowing that,
+at least. Will I want to purge this polluted pick-myself-apart by the time the
+storm has been weathered? Probably. But will I do it? I hope not.
+
+I hope you don't think I'm strange for this. Or maybe I do. Maybe I hope that
+you realize that you're strange too. And that it's not bad to be weird. It's
+what sets us apart that brings us together, I believe. Some of us scream when we
+laugh. Does there need to be a reason that it's attractive?
+
+Is there anything more passionately hopeful than that? If there is, I haven't
+found it.
+
+---
 
 Grief, I expect that this may come as a surprise to you, but I'm going now. We
 will meet again. It will be as old friends do: Smiling knowingly. Maybe with a
 joke and a hug if I'm feeling peppy. I know you don't like hugs because she said
-that they're awkward. You'll get over it.
+that they're awkward. You'll get over it. I have.
 
-I love you, I love you, I love you.
+Hopefully, hopelessly, passionlessly, passionately, painfully, truthfully: I love you, I love you, I love you.
+
+Goodbye, Half of My Heart
+
+Who? Grief.
