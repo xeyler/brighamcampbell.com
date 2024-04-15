@@ -1,0 +1,9 @@
+An ssh honeypot that connects the bad actor to an AI agent that either has an existential conversation about the bad morals behind hacking or pretends to be a root shell on a debian system
+
+A more detailed report on finding the linux kernel regression for the WM8650
+
+Learning more about async functions in Python and asynchronous programming principles
+
+Creating a minecraft classic server in C
+
+It's not your fault that you don't want to use a flip phone
