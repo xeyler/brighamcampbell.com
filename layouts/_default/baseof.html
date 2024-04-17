@@ -1,13 +1,11 @@
+{{- $stylesheet := resources.Get "main.scss" | resources.ToCSS | resources.Minify | fingerprint }}
 <!DOCTYPE html>
 <html lang="{{ .Lang }}">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width">
         <title>{{ .Title | title }}</title>
-        {{- $stylesheet := resources.Get "main.scss" | resources.ToCSS | resources.Minify }}
-        <style>
-            {{ $stylesheet.Content | safeCSS }}
-        </style>
+        <link rel="stylesheet" href="{{ $stylesheet.RelPermalink }}">
     </head>
     <body>
         {{- block "body" . }}
