@@ -7,3 +7,5 @@ Learning more about async functions in Python and asynchronous programming princ
 Creating a minecraft classic server in C
 
 It's not your fault that you don't want to use a flip phone
+
+Responsive images in Hugo html template language
