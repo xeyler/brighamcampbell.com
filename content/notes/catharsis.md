@@ -50,7 +50,7 @@ dancing under a bridge while someone records him, shouting at him, "More
 passion! More energy!" Only the most observant of viewers will deduce that the
 man recording this poor homeless guy paid him to dance. Not that there's
 anything wrong with that, but sometimes Grief and I are alright. Sometimes our
-relationship is firey, dangerous, and exciting. And sometimes it makes me dance
+relationship is fiery, dangerous, and exciting. And sometimes it makes me dance
 for a dollar.
 
 :star: MORE PASSION! :star: MORE ENERGY! :star:
