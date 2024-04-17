@@ -1,9 +1,45 @@
+$background-primary: #fff;
+$background-secondary: #eee;
+$background-tertiary: #999;
+
+$background-primary-dark: #212220;
+$background-secondary-dark: #313230;
+$background-tertiary-dark: #444;
+
+$text-primary: #000;
+$text-secondary: #555;
+
+$text-primary-dark: #e5e5e5;
+$text-secondary-dark: #959595;
+
+$link-dark: #58f;
+$link-clicked-dark: #97f;
+
+a {
+    @media (prefers-color-scheme: dark) {
+        color: $link-dark;
+    }
+}
+
+a:visited {
+    @media (prefers-color-scheme: dark) {
+        color: $link-clicked-dark;
+    }
+}
+
 html {
     font-family: sans-serif;
     line-height: 1.4;
 }
 
 body {
+    @media (prefers-color-scheme: dark) {
+        background: $background-primary-dark;
+        color: $text-primary-dark;
+    }
+
+    background: $background-primary;
+    color: $text-primary;
     max-width: 700px;
     margin: 0 auto;
     padding: 16px;
@@ -17,8 +53,14 @@ body {
 }
 
 blockquote {
-    border-left: 5px solid #888;
-    background: #eee;
+    $border-style: 5px solid;
+    @media (prefers-color-scheme: dark) {
+        background: $background-secondary-dark;
+        border-left: $border-style $background-tertiary-dark;
+    }
+
+    background: $background-secondary;
+    border-left: $border-style $background-tertiary;
     margin-left: 0;
     margin-right: 0;
     > * {
@@ -31,6 +73,11 @@ pre {
     padding: 10px;
 }
 
+footer {
+    text-align: center;
+    margin-top: 25px;
+}
+
 .title {
     * {
         margin: 0;
@@ -40,10 +87,14 @@ pre {
 }
 
 .subheader {
+    @media (prefers-color-scheme: dark) {
+        color: $text-secondary-dark;
+    }
+    
     display: block;
     font-size: medium;
     font-weight: normal;
-    color: #555555;
+    color: $text-secondary;
 }
 
 .footnotes {
@@ -53,9 +104,4 @@ pre {
 .rfc {
     text-align: center;
     margin: 25px;
-}
-
-footer {
-    text-align: center;
-    margin-top: 25px;
 }
