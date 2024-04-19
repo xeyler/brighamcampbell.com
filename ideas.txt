@@ -9,3 +9,5 @@ Creating a minecraft classic server in C
 It's not your fault that you don't want to use a flip phone
 
 Responsive images in Hugo html template language
+
+Storing the biggest number possible in a 64-bit system
