@@ -67,7 +67,17 @@ the next instruction.
 ## Machine code: byte-sized instructions
 
 How exactly does the Gameboy interpret bytes as instructions, then? Well,
-there's a map built into the Gameboy CPU that maps seemingly meaningless byte
-values to instructions for the CPU to perform.
+there's [a map](https://gbdev.io/gb-opcodes/optables/) built into the Gameboy
+CPU that maps seemingly meaningless byte values to instructions for the CPU to
+perform. Among the more interesting entries in the instruction map are the
+following:
+
+`0xF3` => "Disable all hardware interrupts"
+
+`0xC3` => "Read an address from the next two 'mailboxes' and jump to that
+address"
+
+`0xFA` => "Read an address from the next to 'mailboxes' and load the byte inside
+the mailbox at that address into register 'A'
 
 ## Putting it all together
