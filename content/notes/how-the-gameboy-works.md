@@ -1,5 +1,5 @@
 +++
-title = 'Gameboy Machine Code Hello World'
+title = 'Inside the Gameboy'
 date = 2024-04-17T10:37:29-06:00
 draft = true
 +++
@@ -14,15 +14,9 @@ Apparently, the only game Em had was The Lion King. As far as Gameboy games go,
 The Lion King actually had some pretty baller graphics. Not that I would know,
 of course... I spent that entire afternoon trying to get past one level.
 
-Since my first time playing that Gameboy, I've learned a lot more about how they
-work. Along the way, I got kind of involved with the Gameboy homebrew community
-(which is still surprisingly active, despite the Gameboy's age). An interesting
-discussion that I heard now and then was whether C was low-level enough to be
-useful for Gameboy development. Gameboy developers sat in one of two camps: C or
-assembly.
-
-I was a little more deviant. When I wrote a simple "hello world" program for the
-Gameboy, I opted to program it directly in machine code with a hex editor.
+Since my first time playing that Gameboy, I've become interested in how
+computers work. Coincidentally, the Gameboy has a lot to teach about classic
+computer architecture.
 
 ## Bytes all the way down
 
@@ -50,7 +44,7 @@ The same way that you know what homonyms like "bass" mean. See, "bass" can refer
 to either a fish or a musical instrument. You and I use context clues to
 differentiate the two. Similarly, a Gameboy knows if a byte is an instruction
 depending on context. The context within a Gameboy is made up of the CPU's
-internal state (a bunch of labeled registers), and memory.
+internal state (a bunch of registered, labeled A-E, among others), and memory.
 
 You can think of memory as a bunch of mailboxes on a street, roughly. Let's call
 this street "Memory Lane". On Memory Lane, each mailbox has its own address and
@@ -69,15 +63,27 @@ the next instruction.
 How exactly does the Gameboy interpret bytes as instructions, then? Well,
 there's [a map](https://gbdev.io/gb-opcodes/optables/) built into the Gameboy
 CPU that maps seemingly meaningless byte values to instructions for the CPU to
-perform. Among the more interesting entries in this instruction map are the
-following:
+perform. This map makes hundreds of instructions available to the programmer.
+Among the more interesting mapped instructions are the following, in no
+particular order:
 
-`0xF3` => "Disable all hardware interrupts"
+`0x3C`: Increment the value in register 'A' by one.
 
-`0xC3` => "Read an address from the next two 'mailboxes' and jump to that
-the 'mailbox' at that address"
+`0x80`: Add the value of register 'B' to register 'A' and store the result in
+register 'A'
 
-`0xFA` => "Read an address from the next to 'mailboxes' and load the byte inside
-the mailbox at that address into register 'A'
+`0x3E`: Take the value from the next mailbox and store it in register 'A'
 
-## Putting it all together
+`0xC3`: Instead of moving to the next mailbox in line, read an address from the
+next two mailboxes and "jump" to the mailbox at that address, continuing
+execution from there.
+
+`0xF3`: Disable interrupts, which are triggered by certain hardware events such
+as button input or bytes received from another Gameboy via link cable.
+
+`0xFB`: Enable interrupts.
+
+All Gameboy games are a combination of hundreds and thousands of these
+instructions, a bunch of bytes stored in a Gameboy cartridge.
+
+## I/O
