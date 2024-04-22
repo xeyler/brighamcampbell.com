@@ -50,7 +50,7 @@ The same way that you know what homonyms like "bass" mean. See, "bass" can refer
 to either a fish or a musical instrument. You and I use context clues to
 differentiate the two. Similarly, a Gameboy knows if a byte is an instruction
 depending on context. The context within a Gameboy is made up of the CPU's
-internal state, and memory.
+internal state (a bunch of labeled registers), and memory.
 
 You can think of memory as a bunch of mailboxes on a street, roughly. Let's call
 this street "Memory Lane". On Memory Lane, each mailbox has its own address and
@@ -69,13 +69,13 @@ the next instruction.
 How exactly does the Gameboy interpret bytes as instructions, then? Well,
 there's [a map](https://gbdev.io/gb-opcodes/optables/) built into the Gameboy
 CPU that maps seemingly meaningless byte values to instructions for the CPU to
-perform. Among the more interesting entries in the instruction map are the
+perform. Among the more interesting entries in this instruction map are the
 following:
 
 `0xF3` => "Disable all hardware interrupts"
 
 `0xC3` => "Read an address from the next two 'mailboxes' and jump to that
-address"
+the 'mailbox' at that address"
 
 `0xFA` => "Read an address from the next to 'mailboxes' and load the byte inside
 the mailbox at that address into register 'A'
