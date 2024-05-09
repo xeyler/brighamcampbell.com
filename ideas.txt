@@ -11,3 +11,7 @@ It's not your fault that you don't want to use a flip phone
 Responsive images in Hugo html template language
 
 Storing the biggest number possible in a 64-bit system
+
+using html-proofer to create CI for a static website and using nginx to host multiple sites
+
+Using test-driven development to learn C with King's _C Programming: A Modern Approach_

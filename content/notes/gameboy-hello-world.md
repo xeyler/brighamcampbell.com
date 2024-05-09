@@ -11,5 +11,7 @@ discussion that I heard now and then was whether C was low-level enough to be
 useful for Gameboy development. Gameboy developers sat in one of two camps: C or
 assembly.
 
+[how the gameboy works]({{< ref "/notes/how-the-gameboy-works.md" >}})
+
 I was a little more deviant. When I wrote a simple "hello world" program for the
 Gameboy, I opted to program it directly in machine code with a hex editor.
