@@ -14,4 +14,6 @@ Storing the biggest number possible in a 64-bit system
 
 using html-proofer to create CI for a static website and using nginx to host multiple sites
 
-Using test-driven development to learn C with King's _C Programming: A Modern Approach_
+Learning C with King's _C Programming: A Modern Approach_
+
+Creating a lazy Arch Linux package repository mirror
