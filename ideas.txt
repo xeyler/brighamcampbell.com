@@ -17,3 +17,5 @@ using html-proofer to create CI for a static website and using nginx to host mul
 Learning C with King's _C Programming: A Modern Approach_
 
 Creating a lazy Arch Linux package repository mirror
+
+Tailscale pi zero dongle
