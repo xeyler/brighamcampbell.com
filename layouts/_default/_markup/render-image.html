@@ -1,11 +1,14 @@
 {{- $u := urls.Parse .Destination }}
 {{- $src := $u.String }}
-{{- $attributes := dict "alt" .Text "title" .Title -}}
+{{- $attributes := dict "alt" .Text "title" .Title }}
 {{- if not $u.IsAbs }}
     {{- with or (.Page.Resources.Get $u.Path) (resources.Get $u.Path) }}
         {{- with . | fingerprint }}
             {{- if eq .MediaType.SubType "svg" }}
                 {{- $src = .RelPermalink }}
+                {{- if strings.Contains $u.Path "darkmode-compatible" }}
+                    {{- $attributes = merge $attributes (dict "class" "darkmode-compatible")}}
+                {{- end }}
             {{- else }}
                 {{- $attributes = merge $attributes (dict "width" (string .Width)) }}
                 {{- $attributes = merge $attributes (dict "height" (string .Height)) }}

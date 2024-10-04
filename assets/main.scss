@@ -43,6 +43,12 @@ body {
     max-width: 700px;
     margin: 0 auto;
     padding: 16px;
+    
+    img.darkmode-compatible {
+        @media (prefers-color-scheme: dark) {
+            filter: invert(.898);
+        }
+    }
 
     img {
         display: block;
