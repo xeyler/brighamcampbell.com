@@ -5,5 +5,5 @@ hugo_stats.json
 # Temporary lock file while building
 /.hugo_build.lock
 
-/assets/tex/**/*.dvi
+tex/**/*.dvi
 /assets/tex/**/*.svg
