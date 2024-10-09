@@ -1,0 +1,24 @@
+{
+    "background": {
+        "light": {
+            "primary": "ffffff",
+            "secondary": "eeeeee",
+            "tertiary": "999999"
+        },
+        "dark": {
+            "primary": "212220",
+            "secondary": "313230",
+            "tertiary": "444444"
+        }
+    },
+    "text": {
+        "light": {
+            "primary": "000000",
+            "secondary": "555555"
+        },
+        "dark": {
+            "primary": "e5e5e5",
+            "secondary": "959595"
+        }
+    }
+}

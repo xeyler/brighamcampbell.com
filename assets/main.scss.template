@@ -1,19 +1,19 @@
-$background-primary: #fff;
-$background-secondary: #eee;
-$background-tertiary: #999;
+$background-primary: #{{ .Site.Data.styleconf.background.light.primary }};
+$background-secondary: #{{ .Site.Data.styleconf.background.light.secondary }};
+$background-tertiary: #{{ .Site.Data.styleconf.background.light.tertiary }};
 
-$background-primary-dark: #212220;
-$background-secondary-dark: #313230;
-$background-tertiary-dark: #444;
+$background-primary-dark: #{{ .Site.Data.styleconf.background.dark.primary }};
+$background-secondary-dark: #{{ .Site.Data.styleconf.background.dark.secondary }};
+$background-tertiary-dark: #{{ .Site.Data.styleconf.background.dark.tertiary }};
 
-$text-primary: #000;
-$text-secondary: #555;
+$text-primary: #{{ .Site.Data.styleconf.text.light.primary }};
+$text-secondary: #{{ .Site.Data.styleconf.text.light.secondary }};
 
-$text-primary-dark: #e5e5e5;
-$text-secondary-dark: #959595;
+$text-primary-dark: #{{ .Site.Data.styleconf.text.dark.primary }};
+$text-secondary-dark: #{{ .Site.Data.styleconf.text.dark.secondary }};
 
-$link-dark: #58f;
-$link-clicked-dark: #97f;
+$link-dark: #5080f0;
+$link-clicked-dark: #9070f0;
 
 a {
     @media (prefers-color-scheme: dark) {
@@ -43,12 +43,6 @@ body {
     max-width: 700px;
     margin: 0 auto;
     padding: 16px;
-    
-    img.darkmode-compatible {
-        @media (prefers-color-scheme: dark) {
-            filter: invert(.898);
-        }
-    }
 
     img {
         display: block;

@@ -1,19 +1,54 @@
-TEX=$(wildcard assets/tex/**/*.tex)
-DVI=$(TEX:.tex=.dvi)
-SVG=$(TEX:.tex=.svg)
+TEX=$(wildcard tex/*.tex tex/**/*.tex)
+DVI=$(TEX:.tex=-light.dvi) $(TEX:.tex=-dark.dvi)
+TEXSVG=$(addprefix assets/,$(TEX:.tex=-light.svg)) $(addprefix assets/,$(TEX:.tex=-dark.svg))
+STYLEDEFS=data/styleconf.json
+LIGHTCOLOR=$(shell jq -r ".text.light.primary" $(STYLEDEFS))
+DARKCOLOR=$(shell jq -r ".text.dark.primary" $(STYLEDEFS))
+COLORS=$(LIGHTCOLOR) $(DARKCOLOR)
 
-.PHONY: clean all
+.PHONY: clean all latexdiagrams
 
-all: $(SVG)
+all: latexdiagrams
 
 clean:
-	rm -rf $(SVG)
-	rm -rf $(DVI)
+	rm -rf $(TEXSVG)
 
-assets/tex/%.svg: assets/tex/%.dvi
-	dvisvgm $< -o $@
+latexdiagrams: $(TEXSVG)
 
-assets/tex/%.dvi: assets/tex/%.tex
-	latex -output-format=dvi -output-directory=$(shell dirname $<) $<
-	rm -rf $(<:.tex=.log)
-	rm -rf $(<:.tex=.aux)
+assets/tex/%.svg: tex/%.dvi
+	dvisvgm -Z 2 $< -o $@
+
+# TODO: The following two rules should probably be de-duplicated and merged into one
+# also, i want the latex source to have access to a boolean variable which indicates
+# whether it's being rendered in light mode or dark mode
+tex/%-light.dvi: tex/%.tex
+	latexmk \
+		-silent \
+		-dvi \
+		-outdir=$(dir $<) \
+		-jobname=$(basename $(notdir $@)) \
+		-pretex="\AtBeginDocument{\definecolor{MyColor}{HTML}{$(LIGHTCOLOR)}\color{MyColor}}" \
+		-usepretex \
+		$<
+	latexmk \
+		-silent \
+		-c \
+		-outdir=$(dir $<) \
+		-jobname=$(basename $(notdir $@)) \
+		$<
+
+tex/%-dark.dvi: tex/%.tex
+	latexmk \
+		-silent \
+		-dvi \
+		-outdir=$(dir $<) \
+		-jobname=$(basename $(notdir $@)) \
+		-pretex="\AtBeginDocument{\definecolor{MyColor}{HTML}{$(DARKCOLOR)}\color{MyColor}}" \
+		-usepretex \
+		$<
+	latexmk \
+		-silent \
+		-c \
+		-outdir=$(dir $<) \
+		-jobname=$(basename $(notdir $@)) \
+		$<
