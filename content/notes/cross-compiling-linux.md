@@ -23,27 +23,40 @@ The first step in cross-compilation is to define the target platform. The target
 triplet uniquely identifies a platform which gcc (and more generally, the GNU
 build system) targets. It looks something like the following[^2]:
 
-![GNU target triplet](/tex/darkmode-compatible/gnu-triplet.svg)
+![GNU target triplet](/tex/gnu-triplet.svg)
 
-The CPU field indicates the platform's processor architecture. The vendor field indicates
-the entity that distributes software for the platform (this field is commonly
-`unknown` on Linux). The kernel field indicates the kernel that supports the platform.
+The CPU field indicates the platform's processor architecture. The vendor field
+indicates the entity that distributes software for the platform (this field is
+commonly "`unknown`" on Linux). The kernel field indicates the kernel that
+supports the platform.
 
 In practice, there are many cases in which a target triplet is neither a unique
-descriptor of a target nor a triplet at all. Sometimes, triplet can have an
+descriptor of a target nor a triplet at all. Sometimes, the triplet can have an
 additional field for the application binary interface (ABI), as in
 `arm‑none‑linux‑gnueabi`. On some platforms, the vendor field is omitted, as in
 `x86_64‑linux-gnu`. On other platforms, the kernel field is omitted. Therefore,
 the target triplet is only useful after disambiguation, which is the sole
 purpose of `config.sub`, a subroutine of the GNU build system[^3].
 
-Each of the CPU, vendor, kernel, and application binary interface is important
-to know before we can successfully compile software for a different platform.
+Linux is an application which runs in a freestanding environment, where an
+application has access to only a very small portion of the C standard library,
+as opposed to a hosted environment, where an application is guaranteed to have
+access to the entire C standard library. The interface a freestanding
+environment exposes to an application is a subset of that of a hosted
+environment:
+
+![freestanding as a subset of hosted](/tex/freestanding-hosted-gnu-triplet.svg)
+
+This is why the Linux kernel, which only takes advantage of the capabilities of
+a freestanding environment, can be compiled with either a compiler that targets
+a freestanding environment (e.g. `aarch64‑none‑eabi`) or one that targets a
+hosted environment (e.g. `aarch64‑unknown‑linux‑gnueabi`).
 
 # Bootstrapping a cross compiler
 
-[^1]: See Linux From Scratch:
-    https://www.linuxfromscratch.org/lfs/view/stable/part3.html
+[^1]: See Linux From Scratch
+    (https://www.linuxfromscratch.org/lfs/view/stable/part3.html)
 [^2]: Use `gcc -dumpmachine` to view your own system's target triplet.
-[^3]: See https://gcc.gnu.org/releases.html or
-    https://github.com/gcc-mirror/gcc/blob/master/config.sub
+[^3]: See the complete gcc source code (https://gcc.gnu.org/releases.html) or
+    config.sub on the GitHub mirror
+    (https://github.com/gcc-mirror/gcc/blob/master/config.sub)
