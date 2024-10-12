@@ -1,44 +1,80 @@
-{{- $u := urls.Parse .Destination }}
-{{- $src := $u.String }}
-{{- $attributes := dict "alt" .Text "title" .Title }}
-{{- if not $u.IsAbs }}
-    {{- with or (.Page.Resources.Get $u.Path) (resources.Get $u.Path) }}
-        {{- with . | fingerprint }}
-            {{- if eq .MediaType.SubType "svg" }}
-                {{- $src = .RelPermalink }}
-            {{- else }}
-                {{- $attributes = merge $attributes (dict "width" (string .Width)) }}
-                {{- $attributes = merge $attributes (dict "height" (string .Height)) }}
-                {{- $image_quality := or (site.Params.imageQuality) (75)}}
-                {{- $webp_image := .Resize (printf "%dx%d webp q%d" .Width .Height $image_quality) }}
-                {{- $src = $webp_image.RelPermalink }}
-                {{- if isset site.Params "responsiveimagewidths" }}
-                    {{- $srcset := "" }}
-                    {{- $image_resource := . }}
-                    {{- range site.Params.responsiveImageWidths }}
-                        {{- if lt . $image_resource.Width }}
-                            {{- with $image_resource.Resize (printf "%dx webp q%d" . $image_quality) }}
-                                {{- $srcset = printf "%s%s %dw, " $srcset .RelPermalink .Width }}
-                            {{- end }}
-                        {{- end }}
-                    {{- end }}
-                    {{- if not (eq "" $srcset) }}
-                        {{- $srcset = printf "%s%s %dw" $srcset $webp_image.RelPermalink $webp_image.Width }}
-                        {{- $attributes = merge $attributes (dict "srcset" $srcset) }}
-                        {{- $sizes := site.Params.responsiveImageSizes }}
-                        {{- $attributes = merge $attributes (dict "sizes" $sizes) }}
-                    {{- end }}
-                {{- end }}
-            {{- end }}
-        {{- end }}
-    {{- else }}
-        {{- warnidf "missing-images" (printf "Couldn't find image as a global or page resource: %s" $u.Path) }}
-    {{- end }}
-{{- end }}
-{{- $attributes = merge $attributes (dict "src" $src)}}
-<img
-{{- range $k, $v := $attributes -}}
-    {{- if $v -}}
-        {{- printf " %s=%q" $k $v | safeHTMLAttr -}}
+{{/* TODO: This render hook works perfectly well for my use case, where */}}
+{{/* I'll only ever need one additional "source" tag in a picture. It is */}}
+{{/* unsuitable for use in any other case. It should be generalized. */}}
+
+{{- $pic_children := dict "img" (dict "alt" .Text "title" .Title "src" .Destination) -}}
+{{- $url := urls.Parse .Destination -}}
+
+{{/* if url is remote, skip all resource processing. this also gives us a default src if the resource is missing */}}
+{{- if not $url.IsAbs -}}
+    {{- $resources := dict -}}
+    {{- $dark_path := replaceRE "^(.*?)(\\.[^.]*)?$" "$1.dark$2" $url.Path -}}
+    {{- with or (.Page.Resources.Get $dark_path) (resources.Get $dark_path) -}}
+        {{- with . | fingerprint -}}
+            {{- $resources = merge $resources (dict "source" .) -}}
+        {{- end -}}
     {{- end -}}
-{{- end -}}>
+    {{- with or (.Page.Resources.Get $url.Path) (resources.Get $url.Path) -}}
+        {{- with . | fingerprint -}}
+            {{- $resources = merge $resources (dict "img" .) -}}
+        {{- end -}}
+    {{- else }}
+        {{- warnidf "missing-images" (printf "Couldn't find image as a global or page resource: %s" $url.Path) }}
+    {{- end }}
+
+    {{- range $tag, $resource := $resources -}}
+        {{- with $resource -}}
+            {{- if eq .MediaType.SubType "svg" }}
+                {{- if eq $tag "img" -}}
+                    {{- $pic_children = merge $pic_children (dict $tag (dict "src" .RelPermalink)) -}}
+                {{- else -}}
+                    {{- $pic_children = merge $pic_children (dict $tag (dict "srcset" .RelPermalink "media" "(prefers-color-scheme: dark)")) -}}
+                {{- end -}}
+            {{- else }}
+                {{- if eq $tag "img" -}}
+                    {{- $pic_children = merge $pic_children (dict $tag (dict "width" (string .Width))) -}}
+                    {{- $pic_children = merge $pic_children (dict $tag (dict "height" (string .Height))) -}}
+                {{- end -}}
+                {{- $image_quality := or (site.Params.imageQuality) (75) -}}
+                {{- $webp_image := .Resize (printf "%dx%d webp q%d" .Width .Height $image_quality) -}}
+                {{- $pic_children = merge $pic_children (dict $tag (dict "src" (string $webp_image.RelPermalink))) -}}
+                {{- if isset site.Params "responsiveimagewidths" -}}
+                    {{- $srcset := "" -}}
+                    {{- $image_resource := . -}}
+                    {{- range site.Params.responsiveImageWidths -}}
+                        {{- if lt . $image_resource.Width -}}
+                            {{- with $image_resource.Resize (printf "%dx webp q%d" . $image_quality) -}}
+                                {{- $srcset = printf "%s%s %dw, " $srcset .RelPermalink .Width -}}
+                            {{- end -}}
+                        {{- end -}}
+                    {{- end -}}
+                    {{- if not (eq "" $srcset) }}
+                        {{- $srcset = printf "%s%s %dw" $srcset $webp_image.RelPermalink $webp_image.Width -}}
+                        {{- $pic_children = merge $pic_children (dict $tag (dict "srcset" $srcset)) -}}
+                        {{- $sizes := site.Params.responsiveImageSizes -}}
+                        {{- $pic_children = merge $pic_children (dict $tag (dict "sizes" $sizes)) -}}
+                    {{- end -}}
+                {{- end -}}
+            {{- end -}}
+        {{- end -}}
+    {{- end -}}
+{{- end }}
+
+<picture>
+    {{- with index $pic_children "source" -}}
+        <source
+        {{- range $attribute, $value := . -}}
+            {{- if $value -}}
+                {{- printf " %s=%q" $attribute $value | safeHTMLAttr -}}
+            {{- end -}}
+        {{- end -}}>
+    {{- end -}}
+    {{- with index $pic_children "img" -}}
+        <img
+        {{- range $attribute, $value := . -}}
+            {{- if $value -}}
+                {{- printf " %s=%q" $attribute $value | safeHTMLAttr -}}
+            {{- end -}}
+        {{- end -}}>
+    {{- end -}}
+</picture>
