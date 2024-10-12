@@ -45,7 +45,7 @@ access to the entire C standard library. The interface a freestanding
 environment exposes to an application is a subset of that of a hosted
 environment:
 
-![freestanding as a subset of hosted](/tex/freestanding-hosted-gnu-triplet.svg)
+![freestanding as a subset of hosted](/tex/freestanding-hosted-environments.svg)
 
 This is why the Linux kernel, which only takes advantage of the capabilities of
 a freestanding environment, can be compiled with either a compiler that targets
