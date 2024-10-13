@@ -4,11 +4,16 @@ TEXSVG=$(addprefix assets/,$(TEX:.tex=.svg)) $(addprefix assets/,$(TEX:.tex=.dar
 STYLEDEFS=data/styleconf.json
 LIGHTCOLOR=$(shell jq -r ".text.light.primary" $(STYLEDEFS))
 DARKCOLOR=$(shell jq -r ".text.dark.primary" $(STYLEDEFS))
-COLORS=$(LIGHTCOLOR) $(DARKCOLOR)
 
-.PHONY: clean all latexdiagrams
+.PHONY: clean all latexdiagrams watch
 
 all: latexdiagrams
+
+watch:
+	while true; do \
+		$(MAKE); \
+		inotifywait -qre close_write .; \
+	done
 
 clean:
 	rm -rf $(TEXDVI)
@@ -17,12 +22,12 @@ clean:
 latexdiagrams: $(TEXSVG)
 
 assets/tex/%.svg: tex/%.dvi
-	dvisvgm $< -o $@
+	dvisvgm -Z 2 $< -o $@
 
 # TODO: The following two rules should be de-duplicated and merged into one
 # also, i want the latex source to have access to a boolean variable which indicates
 # whether it's being rendered in light mode or dark mode
-tex/%.dvi: tex/%.tex
+tex/%.dvi: tex/%.tex $(STYLEDEFS)
 	latexmk \
 		-silent \
 		-dvi \
@@ -38,7 +43,7 @@ tex/%.dvi: tex/%.tex
 		-jobname=$(basename $(notdir $@)) \
 		$<
 
-tex/%.dark.dvi: tex/%.tex
+tex/%.dark.dvi: tex/%.tex $(STYLEDEFS)
 	latexmk \
 		-silent \
 		-dvi \

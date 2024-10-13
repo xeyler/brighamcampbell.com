@@ -1,12 +1,5 @@
-* I don't want to invert the color of svgs, I want the latex source to define
-how it should be rendered for light/dark modes.
-
-    in the layouts/_default/_markup/render-image.html hook, a responsive
-    <picture> tag will automatically be generated if there exists a dark version
-    of a resource i.e. assets/tex/foo-light.svg and assets/tex/foo-dark.svg
-
-    allow latex sources to deal with light/dark mode by passing in a boolean
-    variable at latexmk compile time
+* allow latex sources to detect and respond to with light/dark mode by passing
+in a boolean variable at latexmk compile time
 
 * SVG img tags should also have width and height attributes (we could use
 imagemagick's `identify` to figure out the intrinsic width/height of an svg, but
