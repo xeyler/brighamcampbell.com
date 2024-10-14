@@ -21,7 +21,10 @@ clean:
 
 latexdiagrams: $(TEXSVG)
 
-assets/tex/%.svg: tex/%.dvi
+assets/tex:
+	mkdir -p assets/tex/
+
+assets/tex/%.svg: tex/%.dvi assets/tex
 	dvisvgm -Z 2 $< -o $@
 
 # TODO: The following two rules should be de-duplicated and merged into one
@@ -43,7 +46,7 @@ tex/%.dvi: tex/%.tex $(STYLEDEFS)
 		-jobname=$(basename $(notdir $@)) \
 		$<
 
-tex/%.dark.dvi: tex/%.tex $(STYLEDEFS)
+tex/%.dark.dvi: tex/%.tex $(STYLEDEFS) assets/tex
 	latexmk \
 		-silent \
 		-dvi \
