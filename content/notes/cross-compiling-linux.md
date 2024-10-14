@@ -50,9 +50,20 @@ environment:
 This is why the Linux kernel, which only takes advantage of the capabilities of
 a freestanding environment, can be compiled with either a compiler that targets
 a freestanding environment (e.g. `aarch64‑none‑eabi`) or one that targets a
-hosted environment (e.g. `aarch64‑unknown‑linux‑gnueabi`).
+hosted environment (e.g. `aarch64‑unknown‑linux‑gnueabi`). We'll verify this by
+building Linux using either target.
 
-# Bootstrapping a cross compiler
+# The cross compiler
+
+Now that we have uniquely identified the target platforms, we need to acquire
+the correct cross compiler. There are a couple different ways to do this:
+
+* Manually build a cross compiler using a native compiler and the GCC source
+  code
+* Install a pre-built cross compiler from your distribution's package
+  repository
+* Use toolchain management software like crosstool-NG or buildroot to build a
+  custom cross compiler toolchain
 
 [^1]: See Linux From Scratch
     (https://www.linuxfromscratch.org/lfs/view/stable/part3.html)
