@@ -15,29 +15,12 @@ $text-secondary-dark: #{{ .Site.Data.styleconf.text.dark.secondary }};
 $link-dark: #5080f0;
 $link-clicked-dark: #9070f0;
 
-a {
-    @media (prefers-color-scheme: dark) {
-        color: $link-dark;
-    }
-}
-
-a:visited {
-    @media (prefers-color-scheme: dark) {
-        color: $link-clicked-dark;
-    }
-}
-
 html {
     font-family: sans-serif;
     line-height: 1.4;
 }
 
 body {
-    @media (prefers-color-scheme: dark) {
-        background: $background-primary-dark;
-        color: $text-primary-dark;
-    }
-
     background: $background-primary;
     color: $text-primary;
     max-width: 700px;
@@ -53,14 +36,10 @@ body {
 }
 
 blockquote {
-    $border-style: 5px solid;
-    @media (prefers-color-scheme: dark) {
-        background: $background-secondary-dark;
-        border-left: $border-style $background-tertiary-dark;
-    }
-
     background: $background-secondary;
-    border-left: $border-style $background-tertiary;
+    border-left-style: solid;
+    border-left-width: 5px;
+    border-left-color: $background-tertiary;
     margin-left: 0;
     margin-right: 0;
     > * {
@@ -87,10 +66,6 @@ footer {
 }
 
 .subheader {
-    @media (prefers-color-scheme: dark) {
-        color: $text-secondary-dark;
-    }
-    
     display: block;
     font-size: medium;
     font-weight: normal;
@@ -104,4 +79,28 @@ footer {
 .rfc {
     text-align: center;
     margin: 25px;
+}
+
+@media (prefers-color-scheme: dark) {
+    a {
+        color: $link-dark;
+    }
+
+    a:visited {
+        color: $link-clicked-dark;
+    }
+
+    body {
+        background: $background-primary-dark;
+        color: $text-primary-dark;
+    }
+
+    blockquote {
+        background: $background-secondary-dark;
+        border-left-color: $background-tertiary-dark;
+    }
+
+    .subheader {
+        color: $text-secondary-dark;
+    }
 }
