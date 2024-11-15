@@ -50,8 +50,7 @@ environment:
 This is why the Linux kernel, which only takes advantage of the capabilities of
 a freestanding environment, can be compiled with either a compiler that targets
 a freestanding environment (e.g. `aarch64‑none‑eabi`) or one that targets a
-hosted environment (e.g. `aarch64‑unknown‑linux‑gnueabi`). We'll verify this by
-building Linux using either target.
+hosted environment (e.g. `aarch64‑unknown‑linux‑gnueabi`).
 
 # The cross compiler
 
@@ -65,9 +64,23 @@ the correct cross compiler. There are a couple different ways to do this:
 * Use toolchain management software like crosstool-NG or buildroot to build a
   custom cross compiler toolchain
 
+We'll opt to build a gcc toolchain which targets a freestanding environment
+using crosstool-NG.
+
+# Crosstool-NG
+
+Crosstool-NG can be built and installed from source, downloaded as a tarball, or
+installed from some distributions' package repositories[^4]. 
+
+# Compiling the kernel
+
+# Using QEMU to test the kernel
+
 [^1]: See Linux From Scratch
     (https://www.linuxfromscratch.org/lfs/view/stable/part3.html)
 [^2]: Use `gcc -dumpmachine` to view your own system's target triplet.
 [^3]: See the complete gcc source code (https://gcc.gnu.org/releases.html) or
     config.sub on the GitHub mirror
     (https://github.com/gcc-mirror/gcc/blob/master/config.sub)
+[^4]: See crosstool-NG installation instructions
+    (https://crosstool-ng.github.io/docs/install/)

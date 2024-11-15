@@ -5,13 +5,17 @@ STYLEDEFS=data/styleconf.json
 LIGHTCOLOR=$(shell jq -r ".text.light.primary" $(STYLEDEFS))
 DARKCOLOR=$(shell jq -r ".text.dark.primary" $(STYLEDEFS))
 
-.PHONY: clean all latexdiagrams watch
+.PHONY: clean all latexdiagrams develop hugo
 
-all: latexdiagrams
+all: latexdiagrams hugo
 
-watch:
+hugo:
+	hugo
+
+develop:
+	hugo -D server & \
 	while true; do \
-		$(MAKE); \
+		$(MAKE) latexdiagrams; \
 		inotifywait -qre close_write .; \
 	done
 
