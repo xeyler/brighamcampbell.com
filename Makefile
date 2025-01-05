@@ -12,11 +12,15 @@ all: latexdiagrams hugo
 hugo:
 	hugo
 
+# This directive runs make once before running it in a loop so that when hugo
+# forks, all the assets have already been generated. It doesn't catch on to
+# newly generated assets after it's already started
 develop:
+	$(MAKE) latexdiagrams
 	hugo -D server & \
 	while true; do \
-		$(MAKE) latexdiagrams; \
 		inotifywait -qre close_write .; \
+		$(MAKE) latexdiagrams; \
 	done
 
 clean:
@@ -32,8 +36,8 @@ assets/tex/%.svg: tex/%.dvi assets/tex
 	dvisvgm -Z 2 $< -o $@
 
 # TODO: The following two rules should be de-duplicated and merged into one
-# also, i want the latex source to have access to a boolean variable which indicates
-# whether it's being rendered in light mode or dark mode
+# also, i want the latex source to have access to a boolean variable which
+# indicates whether it's being rendered in light mode or dark mode
 tex/%.dvi: tex/%.tex $(STYLEDEFS)
 	latexmk \
 		-silent \
