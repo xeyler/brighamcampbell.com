@@ -12,8 +12,8 @@ $text-secondary: #{{ .Site.Data.styleconf.text.light.secondary }};
 $text-primary-dark: #{{ .Site.Data.styleconf.text.dark.primary }};
 $text-secondary-dark: #{{ .Site.Data.styleconf.text.dark.secondary }};
 
-$link-dark: #5080f0;
-$link-clicked-dark: #9070f0;
+$link-dark:rgb(119, 160, 255);
+$link-clicked-dark:rgb(202, 146, 255);
 
 html {
     font-family: sans-serif;
@@ -54,8 +54,16 @@ blockquote {
     }
 }
 
+sup {
+    line-height: 1;
+}
+
 pre {
     padding: 10px;
+    overflow-x: auto;
+    white-space: pre;
+    scrollbar-color: auto;
+    background: $background-secondary;
 }
 
 footer {
@@ -99,6 +107,10 @@ footer {
     body {
         background: $background-primary-dark;
         color: $text-primary-dark;
+    }
+
+    pre {
+        background: $background-secondary-dark;
     }
 
     blockquote {
