@@ -17,7 +17,7 @@ hugo:
 # newly generated assets after it's already started
 develop:
 	$(MAKE) latexdiagrams
-	hugo -D server & \
+	hugo --buildDrafts server --navigateToChanged --disableFastRender & \
 	while true; do \
 		inotifywait -qre close_write .; \
 		$(MAKE) latexdiagrams; \

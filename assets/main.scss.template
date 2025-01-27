@@ -17,7 +17,7 @@ $link-clicked-dark: #9070f0;
 
 html {
     font-family: sans-serif;
-    line-height: 1.4;
+    line-height: 1.5;
 }
 
 body {
@@ -26,13 +26,19 @@ body {
     max-width: 700px;
     margin: 0 auto;
     padding: 16px;
+    hyphens: auto;
+    overflow-wrap: break-word;
+}
 
-    img {
-        display: block;
-        max-width: 100%;
-        height: auto;
-        margin: 0 auto;
-    }
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+}
+
+p code {
+    display: inline-block;
 }
 
 blockquote {
