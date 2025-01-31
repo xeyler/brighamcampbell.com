@@ -9,8 +9,37 @@ draft = true
 
 int main(void)
 {
+	ridiculouslyVerboseStringNameThatDoesNotNeedToExistButHereWeAreAnywayBecauseWhyNot
 	printf("Hello World\n");
 	return 0;
+}
+```
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main() {
+    char *ridiculouslyVerboseStringNameThatDoesNotNeedToExistButHereWeAreAnywayBecauseWhyNot = "This is a long string for absolutely no reason at all other than to demonstrate how unnecessarily long lines can be in a meaningless C program.";
+    int arrayOfUselessNumbersThatServeNoPurposeWhatsoeverExceptToTakeUpSpaceAndAddToTheNonsense[5] = {42, 1337, 9001, 123456, 789012};
+    printf("Welcome to the pointless program that does nothing useful at all but takes up lots of horizontal space because why not.\n");
+
+    for (int indexOfIterationThroughTheUnnecessarilyLongArrayName = 0; indexOfIterationThroughTheUnnecessarilyLongArrayName < 5; indexOfIterationThroughTheUnnecessarilyLongArrayName++) {
+        printf("Iterating through arrayOfUselessNumbersThatServeNoPurposeWhatsoeverExceptToTakeUpSpaceAndAddToTheNonsense[%d]: %d\n", indexOfIterationThroughTheUnnecessarilyLongArrayName, arrayOfUselessNumbersThatServeNoPurposeWhatsoeverExceptToTakeUpSpaceAndAddToTheNonsense[indexOfIterationThroughTheUnnecessarilyLongArrayName]);
+    }
+
+    printf("Concatenating strings in a way that is unnecessarily verbose and painful to read:\n");
+    char finalStringOfPointlessness[512];
+    snprintf(finalStringOfPointlessness, sizeof(finalStringOfPointlessness), "%s %s %s %s", ridiculouslyVerboseStringNameThatDoesNotNeedToExistButHereWeAreAnywayBecauseWhyNot, "with", "added", "nonsense!");
+    printf("%s\n", finalStringOfPointlessness);
+
+    if (strlen(ridiculouslyVerboseStringNameThatDoesNotNeedToExistButHereWeAreAnywayBecauseWhyNot) > 100 && arrayOfUselessNumbersThatServeNoPurposeWhatsoeverExceptToTakeUpSpaceAndAddToTheNonsense[2] == 9001) {
+        printf("It's over 9000! But this comparison means absolutely nothing in this context, much like the rest of this program.\n");
+    }
+
+    printf("Exiting the program gracefully but not before wasting more horizontal space for no reason other than to comply with the requirements of making this code as ridiculously long-winded as possible.\n");
+    return 0;
 }
 ```
 
