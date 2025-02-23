@@ -79,6 +79,10 @@ footer {
     margin: 15px 0;
 }
 
+.note-link {
+
+}
+
 .subheader {
     display: block;
     font-size: medium;

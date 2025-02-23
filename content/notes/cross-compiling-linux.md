@@ -38,6 +38,8 @@ additional field for the application binary interface (ABI), as in
 the target triplet is only useful after disambiguation, which is the sole
 purpose of `config.sub`, a subroutine of the GNU build system[^3].
 
+# Compiler ABI and the Linux Kernel
+
 Linux is an application which runs in a freestanding environment, where an
 application has access to only a very small portion of the C standard library,
 as opposed to a hosted environment, where an application is guaranteed to have
@@ -47,10 +49,14 @@ environment:
 
 ![freestanding as a subset of hosted](/tex/freestanding-hosted-environments.svg)
 
-This is why the Linux kernel, which only takes advantage of the capabilities of
-a freestanding environment, can be compiled with either a compiler that targets
-a freestanding environment (e.g. `aarch64‑none‑eabi`) or one that targets a
-hosted environment (e.g. `aarch64‑unknown‑linux‑gnueabi`).
+In fact, the Linux kernel empowers different C standard library implementations
+to provide users a hosted environment at all. Whenever you `#include <stdio.h>`,
+thank your local kernel developer.
+
+What all this means is that the Linux kernel, which only takes advantage of the
+capabilities of a freestanding environment, can be compiled with either a
+compiler that targets a freestanding environment (e.g. `aarch64‑none‑eabi`) or
+one that targets a hosted environment (e.g. `aarch64‑unknown‑linux‑gnueabi`).
 
 # The cross compiler
 

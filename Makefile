@@ -33,7 +33,7 @@ assets/tex:
 	mkdir -p assets/tex/
 
 assets/tex/%.svg: tex/%.dvi assets/tex
-	dvisvgm -Z 2 $< -o $@
+	dvisvgm --zoom=2 --font-format=WOFF2 $< -o $@
 
 # TODO: The following two rules should be de-duplicated and merged into one
 # also, i want the latex source to have access to a boolean variable which
