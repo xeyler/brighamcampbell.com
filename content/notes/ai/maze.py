@@ -18,7 +18,6 @@ unvisited_nodes = list(product(v_domain, v_range))
 edges = dict()
 cheapest_cost = dict()
 cheapest_edge = dict()
-selected_paths = list()
 
 for y in range(height):
     for x in range(width - 1):
@@ -64,15 +63,12 @@ while unvisited_nodes:
             lowest_cost = cheapest_cost[node]
             selected_edge = cheapest_edge[node]
     unvisited_nodes.remove(selected_edge[1])
-    selected_paths.append(selected_edge)
     connected_edges = {k:v for (k,v) in edges.items() if selected_edge[1] in k}
     for edge in connected_edges:
         if edges[edge] < cheapest_cost[edge[1]]:
             cheapest_cost[edge[1]] = edges[edge]
             cheapest_edge[edge[1]] = edge
-    turtle.penup()
     turtle.teleport(*selected_edge[0])
-    turtle.pendown()
     turtle.goto(*selected_edge[1])
     
 turtle.mainloop()
