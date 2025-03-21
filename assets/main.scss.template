@@ -62,7 +62,6 @@ pre {
     padding: 10px;
     overflow-x: auto;
     white-space: pre;
-    scrollbar-color: auto;
     background: $background-secondary;
 }
 
@@ -77,10 +76,6 @@ footer {
     }
 
     margin: 15px 0;
-}
-
-.note-link {
-
 }
 
 .subheader {
