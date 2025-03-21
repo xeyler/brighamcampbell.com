@@ -3,6 +3,7 @@ languageCode = "en-us"
 title = "Brigham Campbell's Notes"
 disableKinds = ['taxonomy', 'term', 'section']
 enableEmoji = true
+disableHugoGeneratorInject = true
 
 [params]
     email = "me@brighamcampbell.com"
