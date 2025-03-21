@@ -1,0 +1,3 @@
+{{- if isset site.Params "email" }}
+    <div class="rfc">Questions or comments? <a href="mailto:{{ site.Params.email }}?subject={{ urlquery (printf "Re: %s" .Title) }}">Send me an email</a>.</div>
+{{- end }}
