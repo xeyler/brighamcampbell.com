@@ -3,6 +3,9 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width">
+	{{ with .OutputFormats.Get "rss" }}
+	    {{ printf `<link rel=%q type=%q href=%q title=%q>` .Rel .MediaType.Type .Permalink site.Title | safeHTML }}
+	{{ end }}
         <title>{{ .Title | title }}</title>
         {{  with resources.Get "main.scss.template" | resources.ExecuteAsTemplate "main.scss" . | css.Sass | resources.Minify }}
         <style>
