@@ -29,7 +29,7 @@ Modern messaging platforms make it easy to share images, videos, audio recording
 
 For those with accessibility needs, text can be read aloud with screen readers, output to braille touch devices, automatically translated to and from a native language, and a hundred other things.
 
-When want to recall a message that was sent a while ago, I can use my client to search for exact string matches or regular expressions. Unfortunately, my client of choice doesn't seem to allow searching for messages sent by a specific user quite yet, but most channels I participate in are slow enough that I haven't found myself wishing I had that feature quite yet. I'm happier knowing that chat logs are stored on and searchable from a computer that I own instead of the cloud.
+When I want to recall a message that was sent a while ago, I can use my client to search for exact string matches or regular expressions. Unfortunately, my client of choice doesn't seem to allow searching for messages sent by a specific user quite yet, but most channels I participate in are slow enough that I haven't found myself wishing I had that feature quite yet. I'm happier knowing that chat logs are stored on and searchable from a computer that I own instead of the cloud.
 
 For cases in which text just isn't sufficient, use a pastebin like [0x0.st](https://0x0.st) to send files. And if it's important to you, use a client which supports file previews and embedded media like The Lounge.
 
