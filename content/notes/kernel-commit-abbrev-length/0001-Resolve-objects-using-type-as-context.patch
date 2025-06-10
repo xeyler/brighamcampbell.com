@@ -1,0 +1,73 @@
+From 564427343e7eb94d0eafe693af6ea2284d216e6b Mon Sep 17 00:00:00 2001
+From: Brigham Campbell <me@brighamcampbell.com>
+Date: Sun, 8 Jun 2025 23:13:17 -0600
+Subject: [PATCH] Resolve objects using type as context
+
+Make the commit, diff, and tree user interfaces resolve object ids using
+their type as context. For example, if a user views a commit with the
+prefix `adc128`, cgit will show the commit even if there also exists a
+blob object in the git database with the same prefix.
+
+This improvement was discussed on the Linux kernel mailing list.
+
+Link: https://lore.kernel.org/lkml/CAMuHMdXxqRRePJ_HHo---6ayjRnQcDRE--mx0kUDg0ceDELG9g@mail.gmail.com/
+Suggested-by: Geert Uytterhoeven <geert@linux-m68k.org>
+Signed-off-by: Brigham Campbell <me@brighamcampbell.com>
+---
+ ui-commit.c | 2 +-
+ ui-diff.c   | 5 +++--
+ ui-tree.c   | 2 +-
+ 3 files changed, 5 insertions(+), 4 deletions(-)
+
+diff --git a/ui-commit.c b/ui-commit.c
+index 972e9bc..137fff3 100644
+--- a/ui-commit.c
++++ b/ui-commit.c
+@@ -28,7 +28,7 @@ void cgit_print_commit(char *hex, const char *prefix)
+ 	if (!hex)
+ 		hex = ctx.qry.head;
+ 
+-	if (repo_get_oid(the_repository, hex, &oid)) {
++	if (repo_get_oid_committish(the_repository, hex, &oid)) {
+ 		cgit_print_error_page(400, "Bad request",
+ 				"Bad object id: %s", hex);
+ 		return;
+diff --git a/ui-diff.c b/ui-diff.c
+index a824546..36966ee 100644
+--- a/ui-diff.c
++++ b/ui-diff.c
+@@ -404,7 +404,7 @@ void cgit_print_diff(const char *new_rev, const char *old_rev,
+ 
+ 	if (!new_rev)
+ 		new_rev = ctx.qry.head;
+-	if (repo_get_oid(the_repository, new_rev, new_rev_oid)) {
++	if (repo_get_oid_committish(the_repository, new_rev, new_rev_oid)) {
+ 		cgit_print_error_page(404, "Not found",
+ 			"Bad object name: %s", new_rev);
+ 		return;
+@@ -418,7 +418,8 @@ void cgit_print_diff(const char *new_rev, const char *old_rev,
+ 	new_tree_oid = get_commit_tree_oid(commit);
+ 
+ 	if (old_rev) {
+-		if (repo_get_oid(the_repository, old_rev, old_rev_oid)) {
++		if (repo_get_oid_committish(the_repository, old_rev,
++				old_rev_oid)) {
+ 			cgit_print_error_page(404, "Not found",
+ 				"Bad object name: %s", old_rev);
+ 			return;
+diff --git a/ui-tree.c b/ui-tree.c
+index 26f19be..c497e36 100644
+--- a/ui-tree.c
++++ b/ui-tree.c
+@@ -380,7 +380,7 @@ void cgit_print_tree(const char *rev, char *path)
+ 	if (!rev)
+ 		rev = ctx.qry.head;
+ 
+-	if (repo_get_oid(the_repository, rev, &oid)) {
++	if (repo_get_oid_treeish(the_repository, rev, &oid)) {
+ 		cgit_print_error_page(404, "Not found",
+ 			"Invalid revision name: %s", rev);
+ 		return;
+-- 
+2.49.0
+
