@@ -1,7 +1,6 @@
 +++
 title = 'Commit Prefix Collisions in the Linux Kernel'
-date = 2025-05-24T01:00:46-06:00
-draft = true
+date = 2025-06-10
 +++
 
 SHA1 hashes are long, ugly, and unwieldy. That's why Linux kernel developers
