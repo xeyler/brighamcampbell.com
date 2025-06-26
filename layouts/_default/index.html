@@ -1,8 +1,25 @@
-{{- define "main" }}
+{{- define "body" }}
+<div class="title">
+    <h1>{{ .Title | title }}</h1>
+    <p class="subheader">
+        {{- with .OutputFormats.Get "rss" }}
+            <a href={{ .Permalink }}>rss</a> |
+        {{- end }}
+        {{- with resources.Get "resume.pdf" }}
+            <a href="{{ .Permalink }}">resume</a> |
+        {{- end }}
+        <a href="mailto:{{ site.Params.email }}">contact</a>
+    </p>
+</div>
+
+{{- block "main" . }}
     {{- range where site.RegularPages "Type" "notes" }}
         <div class="title">
             <p class="subheader">{{ .Date | time.Format ":date_long" }}</p>
             <a href="{{ .RelPermalink }}">{{ .Title | title }}</a>
         </div>
     {{- end }}
+{{- end }}
+
+{{- partialCached "footer.html" . }}
 {{- end }}
