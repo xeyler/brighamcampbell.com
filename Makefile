@@ -26,6 +26,8 @@ develop:
 clean:
 	rm -rf $(TEXDVI)
 	rm -rf $(TEXSVG)
+	rm -rf public/
+	rm -rf resources/
 
 latexdiagrams: $(TEXSVG)
 
