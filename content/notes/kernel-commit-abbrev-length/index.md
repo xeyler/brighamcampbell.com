@@ -35,7 +35,7 @@ randomly, the probability that at least two will share the same birthday
 surpasses 50%. Parameterizing the number of people as `n` (number of commits)
 and the number of days in a year as `d` (total number of unique objects
 addressable by a 12 character prefix), we get the following equation for the
-probability that there is at least one commit prefix collision (assumming
+probability that there is at least one commit prefix collision (assuming
 `n < d`):
 
 ![equation expressing the probability of collision in terms of n and d](/tex/birthday-p.svg)
