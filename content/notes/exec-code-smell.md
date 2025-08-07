@@ -1,7 +1,6 @@
 +++
 title = "Exec Nonsense"
-date = 2025-07-08T22:42:25-06:00
-draft = true
+date = 2025-07-20T20:42:25-06:00
 +++
 
 > "As a dog returneth to his vomit, so a fool returneth to his exec()" -- God,
