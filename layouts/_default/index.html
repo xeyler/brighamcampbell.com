@@ -8,6 +8,9 @@
         {{- with resources.Get "resume.pdf" }}
             <a href="{{ .Permalink }}">resume</a> |
         {{- end }}
+	{{- with resources.Get "ident.asc" }}
+	    <a href="{{ .Permalink }}">gpg</a> |
+	{{- end }}
         <a href="mailto:{{ site.Params.email }}">contact</a>
     </p>
 </div>
