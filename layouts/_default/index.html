@@ -2,16 +2,24 @@
 <div class="title">
     <h1>{{ .Title | title }}</h1>
     <p class="subheader">
-        {{- with .OutputFormats.Get "rss" }}
-            <a href={{ .Permalink }}>rss</a> |
-        {{- end }}
-        {{- with resources.Get "resume.pdf" }}
-            <a href="{{ .Permalink }}">resume</a> |
-        {{- end }}
-	{{- with resources.Get "ident.asc" }}
-	    <a href="{{ .Permalink }}">gpg</a> |
+	{{- $navlinks := slice }}
+	{{- with site.Params.email }}
+	    {{- $link := printf `<a href="mailto:%s">contact</a>` . }}
+	    {{- $navlinks = $navlinks | append $link }}
 	{{- end }}
-        <a href="mailto:{{ site.Params.email }}">contact</a>
+	{{- with resources.Get "resume.pdf" }}
+	    {{- $link := printf `<a href="%s">resume</a>` .Permalink }}
+	    {{- $navlinks = $navlinks | append $link }}
+	{{- end }}
+	{{- with resources.Get "ident.asc" }}
+	    {{- $link := printf `<a href="%s">gpg</a>` .Permalink }}
+	    {{- $navlinks = $navlinks | append $link }}
+	{{- end }}
+	{{- with .OutputFormats.Get "rss" }}
+	    {{- $link := printf `<a href="%s">rss</a>` .Permalink }}
+	    {{- $navlinks = $navlinks | append $link }}
+	{{- end }}
+        {{- delimit $navlinks " | " | safeHTML }}
     </p>
 </div>
 

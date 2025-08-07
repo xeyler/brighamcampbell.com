@@ -7,7 +7,3 @@ preferably I'd use the same image processing backend as hugo)
 
 * I want to be able to live-edit the entire website. Latex SVGs will re-render
 when their dependencies update (including data/styleconf.json)
-
-* Clean up the index.html subheader (gracefully handle the case that rss feed,
-  resume, gpg key, and contact are all unavailable. and allow the maintainer
-  reorganize any of the above as desired)
