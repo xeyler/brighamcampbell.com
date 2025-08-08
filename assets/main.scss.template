@@ -70,12 +70,18 @@ footer {
     margin-top: 25px;
 }
 
-.title {
+.article-card {
     * {
         margin: 0;
     }
 
     margin: 15px 0;
+}
+
+.title {
+    * {
+        margin: 0;
+    }
 }
 
 .subheader {
@@ -91,7 +97,7 @@ footer {
 
 .rfc {
     text-align: center;
-    margin: 25px;
+    margin: 25px 0;
 }
 
 @media (prefers-color-scheme: dark) {
