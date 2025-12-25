@@ -1,7 +1,6 @@
 +++
 title = 'Becoming a Kernel Developer (Hire Me!)'
 date = 2025-12-09T22:53:46-07:00
-draft = true
 +++
 
 Linux kernel developers are famously abrasive, irritable, and explosive. Or
