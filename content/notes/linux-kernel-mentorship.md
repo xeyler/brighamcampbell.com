@@ -104,7 +104,7 @@ Raspberry Pi is very stable, but it has many patches on top of the upstream
 kernel which make the very latest version of the Linux kernel break now and
 then.
 
-In order to test whether the breakage occured upstream or somewhere in the
+In order to test whether the breakage occurred upstream or somewhere in the
 patches applied to the Raspberry Pi's custom Linux kernel specifically, I
 created a hat to test the same display with a the Beaglebone Black. The PCB is
 on its way to me now in the mail.
