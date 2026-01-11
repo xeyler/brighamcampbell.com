@@ -39,9 +39,9 @@ professionals in person and via Zoom to learn more from them.
 ## Setting Out
 
 In the process of applying to the mentorship, I sent out [my first
-patch](https://lore.kernel.org/all/20250528054146.2658537-2-me@brighamcampbell.com/)
-, a small change to kernel documentation to address a compilation warning. I
-was excited to get an email from Jonathan Corbet a couple days later letting me
+patch](https://lore.kernel.org/all/20250528054146.2658537-2-me@brighamcampbell.com/),
+a small change to kernel documentation to address a compilation warning. I was
+excited to get an email from Jonathan Corbet a couple days later letting me
 know he applied the patch.
 
 Afterwards, I felt excited to have officially made a useful (albeit small)
